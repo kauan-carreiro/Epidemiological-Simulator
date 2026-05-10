@@ -1,0 +1,82 @@
+You are an academic scientific writer specialized in computer science, epidemiology, sustainability, and artificial intelligence.
+
+Write a complete scientific-style academic article in Brazilian Portuguese about a web application project called:
+
+“Simulador Epidemiológico Interativo”
+
+The project was developed using:
+- HTML
+- CSS
+- JavaScript
+- Chart.js
+
+The system simulates the spread of infectious diseases using a simplified SIR epidemiological model and includes:
+- real-time simulation;
+- comparison between scenarios with and without vaccination;
+- interactive charts;
+- dark mode;
+- responsive interface;
+- export of results;
+- sliders and dynamic parameter controls.
+
+The article must sound professional, academic, and well-structured, suitable for a university assignment in a Sustainability discipline.
+
+IMPORTANT CONTEXT
+The project was created with the assistance of generative artificial intelligence tools. The article should acknowledge the use of AI ethically and academically, mentioning how AI accelerated development and prototyping.
+
+The text must discuss:
+- sustainability and technology;
+- accessibility of software development through AI;
+- limitations of AI-generated systems;
+- the importance of human interpretation and validation;
+- educational and technological implications of AI-assisted programming.
+
+ARTICLE REQUIREMENTS
+
+Write the article fully in Portuguese (Brazilian Portuguese).
+
+Use formal academic language.
+
+Structure the article with the following sections:
+
+1. Título
+2. Resumo
+3. Palavras-chave
+4. Introdução
+5. Fundamentação Teórica
+6. Metodologia
+7. Desenvolvimento do Sistema
+8. Resultados e Discussão
+9. Sustentabilidade e Inteligência Artificial
+10. Conclusão
+11. Referências
+
+CONTENT REQUIREMENTS
+
+- Explain what epidemiological models are.
+- Briefly explain the SIR model.
+- Explain the technologies used.
+- Explain the application's features and interface.
+- Discuss how artificial intelligence was used during development.
+- Include reflections about the sustainability of modern software development and the increasing dependence on AI tools.
+- Mention advantages and disadvantages of AI-assisted development.
+- Maintain coherence and realistic academic tone throughout the article.
+- Include realistic but generic academic references in ABNT-like style if possible.
+
+WRITING STYLE
+
+- Formal
+- Clear
+- Academic
+- Human-like
+- Well connected paragraphs
+- Avoid repetitive wording
+- Avoid robotic phrasing
+
+LENGTH
+
+Generate a medium-to-long article, approximately 4–7 pages worth of text.
+
+OUTPUT FORMAT
+
+Return only the complete article in properly formatted plain text with section titles.

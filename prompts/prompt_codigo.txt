@@ -1,0 +1,115 @@
+You are an expert front-end developer and scientific simulation designer.
+
+Build a complete, polished, and functional web application called:
+
+"Epidemic Calculator"
+
+The project must be implemented using only:
+- HTML
+- CSS
+- Vanilla JavaScript
+
+Use Chart.js via CDN for charts. The result must be suitable for hosting on GitHub Pages with no backend required.
+
+GOAL
+Create an interactive epidemiological calculator and simulator that models the spread of an infectious disease using a classic SIR-based approach, with optional vaccination and scenario comparison. The application should be visually professional, modern, responsive, and easy to use.
+
+MAIN FEATURES
+1. A clean dashboard-style interface with modern cards and a professional visual design.
+2. Dark mode as the default theme, with a visible toggle to switch between dark and light mode.
+3. Sliders and input fields to control simulation parameters in real time.
+4. Real-time recalculation whenever the user changes values.
+5. Charts showing the evolution over time of:
+   - Susceptible
+   - Infected
+   - Recovered
+   - Optional vaccinated or deceased population, if included
+6. Scenario comparison:
+   - Scenario A: without vaccination
+   - Scenario B: with vaccination
+   Display both scenarios side by side or in overlaid charts for easy comparison.
+7. Results cards showing key metrics clearly, such as:
+   - Peak infected
+   - Day of peak infection
+   - Total infected
+   - Total recovered
+   - Remaining susceptible
+   - Basic reproduction estimate or effective spread indicator
+8. Export results:
+   - Export simulation data to CSV
+   - Export chart image or simulation summary if possible
+9. Responsive layout for desktop and mobile.
+10. Include a reset button to restore default values.
+11. Include tooltips, labels, and small explanatory text so the application feels academic and easy to understand.
+
+EPIDEMIOLOGICAL MODEL
+Use a simplified but credible SIR model, optionally extended with vaccination. The simulation should be based on daily time steps.
+
+Suggested parameters:
+- Total population
+- Initial infected
+- Initial recovered
+- Transmission rate (beta)
+- Recovery rate (gamma)
+- Simulation duration in days
+- Vaccination rate or percentage vaccinated
+- Optional mortality rate if you can implement it cleanly
+
+The simulation should calculate values over time and update the chart and metrics accordingly.
+
+UI / UX REQUIREMENTS
+- Make the interface look like a professional academic or scientific tool.
+- Use cards, sections, spacing, shadows, rounded corners, and a modern typography style.
+- Keep the layout elegant and uncluttered.
+- Use color to distinguish scenarios and variables clearly.
+- Add a header with title, subtitle, and short explanation.
+- Add a results area that updates instantly.
+- Make the charts large enough to be readable and visually attractive.
+
+FUNCTIONAL REQUIREMENTS
+- The code must work directly when opened in a browser.
+- No external frameworks except Chart.js.
+- Separate the solution into:
+  - index.html
+  - style.css
+  - script.js
+- Write clean, commented, and maintainable code.
+- Ensure all functions are understandable and logically organized.
+- Avoid unnecessary complexity, but make the application feel complete and real.
+
+EXPORT / DOWNLOAD
+Implement a way to export the simulation data as CSV.
+If possible, also provide a way to download a summary of results.
+If chart image export is too complex, mention how to do it or implement the easiest practical version.
+
+SCENARIO COMPARISON
+Implement at least two scenarios:
+- Scenario 1: no vaccination
+- Scenario 2: with vaccination
+
+The comparison should make the impact of vaccination easy to observe.
+
+VISUAL DESIGN
+Use a modern scientific dashboard aesthetic:
+- dark background
+- accent colors for chart lines
+- cards for metrics
+- slider controls in a sidebar or control panel
+- readable text
+- polished spacing and alignment
+
+OUTPUT FORMAT
+Return ONLY the full code for each file, separated clearly by filename:
+1. index.html
+2. style.css
+3. script.js
+
+After the code, include brief instructions for how to run the project locally.
+
+IMPORTANT
+- The code must be complete and ready to use.
+- Do not leave placeholders like "TODO".
+- Do not omit any essential part.
+- Do not give pseudocode.
+- Do not summarize without providing the actual implementation.
+- Prioritize functionality, clarity, and a professional final result.

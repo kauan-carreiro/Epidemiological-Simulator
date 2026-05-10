@@ -4,60 +4,54 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Epidemic Calculator — SIR Model Simulator</title>
+    <title>Calculadora de Epidemia — Simulador de Modelo SIR</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
 
-    <!-- ===== HEADER ===== -->
     <header class="site-header">
         <div class="header-inner">
             <div class="header-brand">
                 <span class="brand-icon">⬡</span>
                 <div>
-                    <h1 class="site-title">Epidemic Calculator</h1>
-                    <p class="site-subtitle">SIR Compartmental Model Simulator</p>
+                    <h1 class="site-title">Calculadora de Epidemia</h1>
+                    <p class="site-subtitle">Simulador de Modelo Compartimentado SIR</p>
                 </div>
             </div>
             <div class="header-actions">
-                <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+                <button class="theme-toggle" id="themeToggle" title="Alternar modo claro/escuro">
                     <span class="toggle-icon" id="themeIcon">☀</span>
-                    <span class="toggle-label" id="themeLabel">Light</span>
+                    <span class="toggle-label" id="themeLabel">Claro</span>
                 </button>
             </div>
         </div>
         <p class="header-description">
-            Model the spread of an infectious disease using the classical SIR framework. Adjust parameters to observe
-            how transmission rate, recovery rate, and vaccination shape epidemic curves in real time.
+            Modele a propagação de uma doença infecciosa usando a estrutura clássica SIR. Ajuste os parâmetros para observar
+            como a taxa de transmissão, taxa de recuperação e vacinação moldam as curvas epidêmicas em tempo real.
         </p>
     </header>
 
-    <!-- ===== MAIN LAYOUT ===== -->
     <main class="app-layout">
 
-        <!-- ===== SIDEBAR / CONTROLS ===== -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <span class="sidebar-label">Model Parameters</span>
-                <button class="btn-reset" id="resetBtn" title="Restore defaults">↺ Reset</button>
+                <span class="sidebar-label">Parâmetros do Modelo</span>
+                <button class="btn-reset" id="resetBtn" title="Restaurar padrões">↺ Resetar</button>
             </div>
 
-            <!-- Population -->
             <section class="param-group">
-                <h3 class="group-title">Population</h3>
+                <h3 class="group-title">População</h3>
 
                 <div class="param-row">
                     <label for="population">
-                        Total Population <span class="tooltip-icon"
-                            data-tip="The total number of individuals in the modeled population.">?</span>
+                        População Total <span class="tooltip-icon"
+                            data-tip="O número total de indivíduos na população modelada.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="population" min="1000" max="10000000" step="1000" value="1000000" />
@@ -67,8 +61,8 @@
 
                 <div class="param-row">
                     <label for="initialInfected">
-                        Initial Infected <span class="tooltip-icon"
-                            data-tip="Number of people infected at day 0.">?</span>
+                        Infectados Iniciais <span class="tooltip-icon"
+                            data-tip="Número de pessoas infectadas no dia 0.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="initialInfected" min="1" max="10000" step="1" value="100" />
@@ -78,8 +72,8 @@
 
                 <div class="param-row">
                     <label for="initialRecovered">
-                        Initially Immune <span class="tooltip-icon"
-                            data-tip="People already recovered/immune at day 0.">?</span>
+                        Imunes Inicialmente <span class="tooltip-icon"
+                            data-tip="Pessoas já recuperadas/imunes no dia 0.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="initialRecovered" min="0" max="500000" step="1000" value="0" />
@@ -88,14 +82,13 @@
                 </div>
             </section>
 
-            <!-- Transmission -->
             <section class="param-group">
-                <h3 class="group-title">Transmission</h3>
+                <h3 class="group-title">Transmissão</h3>
 
                 <div class="param-row">
                     <label for="beta">
-                        Transmission Rate β <span class="tooltip-icon"
-                            data-tip="Average rate at which a susceptible individual becomes infected per infected person per day. Higher β = faster spread.">?</span>
+                        Taxa de Transmissão β <span class="tooltip-icon"
+                            data-tip="Taxa média na qual um indivíduo suscetível se torna infectado por pessoa infectada por dia. β maior = propagação mais rápida.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="beta" min="0.01" max="1.0" step="0.01" value="0.30" />
@@ -105,8 +98,8 @@
 
                 <div class="param-row">
                     <label for="gamma">
-                        Recovery Rate γ <span class="tooltip-icon"
-                            data-tip="Fraction of infected individuals recovering per day. 1/γ gives the average infectious period in days.">?</span>
+                        Taxa de Recuperação γ <span class="tooltip-icon"
+                            data-tip="Fraçao de indivíduos infectados que se recuperam por dia. 1/γ fornece o período infeccioso médio em dias.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="gamma" min="0.01" max="0.5" step="0.01" value="0.10" />
@@ -116,8 +109,8 @@
 
                 <div class="param-row">
                     <label for="mortalityRate">
-                        Mortality Rate μ <span class="tooltip-icon"
-                            data-tip="Fraction of infected who do not recover (case fatality). Set to 0 to disable.">?</span>
+                        Taxa de Mortalidade μ <span class="tooltip-icon"
+                            data-tip="Fraçao de infectados que não se recuperam (letalidade). Defina como 0 para desativar.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="mortalityRate" min="0" max="0.05" step="0.001" value="0.01" />
@@ -126,14 +119,13 @@
                 </div>
             </section>
 
-            <!-- Vaccination -->
             <section class="param-group">
-                <h3 class="group-title">Vaccination (Scenario B)</h3>
+                <h3 class="group-title">Vacinação (Cenário B)</h3>
 
                 <div class="param-row">
                     <label for="vaccinationRate">
-                        Daily Vaccination Rate <span class="tooltip-icon"
-                            data-tip="Fraction of the remaining susceptible population vaccinated each day in Scenario B.">?</span>
+                        Taxa de Vacinação Diária <span class="tooltip-icon"
+                            data-tip="Fraçao da população suscetível restante vacinada a cada dia no Cenário B.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="vaccinationRate" min="0" max="0.05" step="0.001" value="0.005" />
@@ -143,8 +135,8 @@
 
                 <div class="param-row">
                     <label for="vaccineEfficacy">
-                        Vaccine Efficacy <span class="tooltip-icon"
-                            data-tip="Proportion of vaccinated individuals who gain complete immunity.">?</span>
+                        Eficácia da Vacina <span class="tooltip-icon"
+                            data-tip="Proporção de indivíduos vacinados que ganham imunidade completa.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="vaccineEfficacy" min="0" max="1.0" step="0.01" value="0.90" />
@@ -153,13 +145,12 @@
                 </div>
             </section>
 
-            <!-- Simulation -->
             <section class="param-group">
-                <h3 class="group-title">Simulation</h3>
+                <h3 class="group-title">Simulação</h3>
 
                 <div class="param-row">
                     <label for="days">
-                        Duration (days) <span class="tooltip-icon" data-tip="Total number of days to simulate.">?</span>
+                        Duração (dias) <span class="tooltip-icon" data-tip="Número total de dias para simular.">?</span>
                     </label>
                     <div class="slider-wrap">
                         <input type="range" id="days" min="30" max="730" step="10" value="365" />
@@ -168,141 +159,131 @@
                 </div>
             </section>
 
-            <!-- Export -->
             <section class="param-group export-group">
-                <h3 class="group-title">Export</h3>
+                <h3 class="group-title">Exportar</h3>
                 <div class="export-buttons">
-                    <button class="btn-export" id="exportCSV">⬇ CSV Data</button>
-                    <button class="btn-export" id="exportSummary">⬇ Summary</button>
+                    <button class="btn-export" id="exportCSV">⬇ Dados CSV</button>
+                    <button class="btn-export" id="exportSummary">⬇ Resumo</button>
                 </div>
             </section>
         </aside>
 
-        <!-- ===== CONTENT AREA ===== -->
         <div class="content-area">
 
-            <!-- R0 Badge -->
             <div class="r0-banner">
                 <div class="r0-item">
-                    <span class="r0-label">R₀ (Basic Reproduction Number)</span>
+                    <span class="r0-label">R₀ (Número de Reprodução Básico)</span>
                     <span class="r0-value" id="r0Val">—</span>
                     <span class="r0-hint">β / γ</span>
                 </div>
                 <div class="r0-item">
-                    <span class="r0-label">Infectious Period</span>
+                    <span class="r0-label">Período Infeccioso</span>
                     <span class="r0-value" id="infectiousPeriod">—</span>
-                    <span class="r0-hint">1 / γ (days)</span>
+                    <span class="r0-hint">1 / γ (dias)</span>
                 </div>
                 <div class="r0-item">
-                    <span class="r0-label">Herd Immunity Threshold</span>
+                    <span class="r0-label">Limiar de Imunidade de Rebanho</span>
                     <span class="r0-value" id="herdImmunity">—</span>
                     <span class="r0-hint">1 − 1/R₀</span>
                 </div>
             </div>
 
-            <!-- Scenario Metrics -->
             <div class="scenarios-grid">
 
-                <!-- Scenario A -->
                 <div class="scenario-card scenario-a">
                     <div class="scenario-header">
                         <span class="scenario-badge a">A</span>
-                        <h2>Without Vaccination</h2>
+                        <h2>Sem Vacinação</h2>
                     </div>
                     <div class="metrics-grid">
                         <div class="metric">
-                            <span class="metric-label">Peak Infected</span>
+                            <span class="metric-label">Pico de Infectados</span>
                             <span class="metric-value" id="a-peakInfected">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Day of Peak</span>
+                            <span class="metric-label">Dia do Pico</span>
                             <span class="metric-value" id="a-peakDay">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Total Infected</span>
+                            <span class="metric-label">Total de Infectados</span>
                             <span class="metric-value" id="a-totalInfected">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Total Recovered</span>
+                            <span class="metric-label">Total de Recuperados</span>
                             <span class="metric-value" id="a-totalRecovered">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Total Deaths</span>
+                            <span class="metric-label">Total de Mortes</span>
                             <span class="metric-value" id="a-totalDeaths">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Remaining Susceptible</span>
+                            <span class="metric-label">Suscetíveis Restantes</span>
                             <span class="metric-value" id="a-finalSusceptible">—</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Scenario B -->
                 <div class="scenario-card scenario-b">
                     <div class="scenario-header">
                         <span class="scenario-badge b">B</span>
-                        <h2>With Vaccination</h2>
+                        <h2>Com Vacinação</h2>
                     </div>
                     <div class="metrics-grid">
                         <div class="metric">
-                            <span class="metric-label">Peak Infected</span>
+                            <span class="metric-label">Pico de Infectados</span>
                             <span class="metric-value" id="b-peakInfected">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Day of Peak</span>
+                            <span class="metric-label">Dia do Pico</span>
                             <span class="metric-value" id="b-peakDay">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Total Infected</span>
+                            <span class="metric-label">Total de Infectados</span>
                             <span class="metric-value" id="b-totalInfected">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Total Recovered</span>
+                            <span class="metric-label">Total de Recuperados</span>
                             <span class="metric-value" id="b-totalRecovered">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Total Deaths</span>
+                            <span class="metric-label">Total de Mortes</span>
                             <span class="metric-value" id="b-totalDeaths">—</span>
                         </div>
                         <div class="metric">
-                            <span class="metric-label">Vaccinated</span>
+                            <span class="metric-label">Vacinados</span>
                             <span class="metric-value" id="b-vaccinated">—</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Charts -->
             <div class="charts-section">
 
-                <!-- Combined comparison chart -->
                 <div class="chart-card full-width">
                     <div class="chart-card-header">
-                        <h3>Epidemic Curves — Scenario Comparison</h3>
-                        <p class="chart-note">Infected population over time. Solid = Scenario A (no vaccine), Dashed =
-                            Scenario B (with vaccine).</p>
+                        <h3>Curvas Epidêmicas — Comparação de Cenários</h3>
+                        <p class="chart-note">População infectada ao longo do tempo. Sólido = Cenário A (sem vacina), Tracejado =
+                            Cenário B (com vacina).</p>
                     </div>
                     <div class="chart-wrap">
                         <canvas id="comparisonChart"></canvas>
                     </div>
                 </div>
 
-                <!-- Scenario A detail -->
                 <div class="chart-card">
                     <div class="chart-card-header">
-                        <h3>Scenario A — Compartment Detail</h3>
-                        <p class="chart-note">S, I, R, D populations without vaccination.</p>
+                        <h3>Cenário A — Detalhe dos Compartimentos</h3>
+                        <p class="chart-note">Populações S, I, R, D sem vacinação.</p>
                     </div>
                     <div class="chart-wrap">
                         <canvas id="chartA"></canvas>
                     </div>
                 </div>
 
-                <!-- Scenario B detail -->
                 <div class="chart-card">
                     <div class="chart-card-header">
-                        <h3>Scenario B — Compartment Detail</h3>
-                        <p class="chart-note">S, I, R, V (vaccinated), D populations with vaccination.</p>
+                        <h3>Cenário B — Detalhe dos Compartimentos</h3>
+                        <p class="chart-note">Populações S, I, R, V (vacinados), D com vacinação.</p>
                     </div>
                     <div class="chart-wrap">
                         <canvas id="chartB"></canvas>
@@ -312,13 +293,12 @@
             </div>
 
             <footer class="app-footer">
-                <p>SIR Model — Kermack & McKendrick (1927). Simulated in daily time steps using the Euler method.</p>
-                <p>For educational and illustrative purposes only.</p>
+                <p>Modelo SIR — Kermack & McKendrick (1927). Simulado em etapas diárias usando o método de Euler.</p>
+                <p>Apenas para fins educacionais e ilustrativos.</p>
             </footer>
         </div>
     </main>
 
-    <!-- Tooltip overlay -->
     <div class="tooltip-popup" id="tooltipPopup"></div>
 
     <script src="script.js"></script>
